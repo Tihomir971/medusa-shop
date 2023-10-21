@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Collection from '$lib/components/Collection.svelte';
+	export let data;
+</script>
+
+<Collection products={data.products.products} />
+
+<pre>
+    {JSON.stringify(data.products, null, 2)}
+</pre>
