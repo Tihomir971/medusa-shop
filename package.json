@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"lucide-svelte": "^0.288.0"
+		"lucide-svelte": "^0.288.0",
+		"sveltekit-medusa-client": "^3.1.2"
 	}
 }

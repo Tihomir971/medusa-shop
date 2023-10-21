@@ -4,7 +4,6 @@ import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async function ({ params, locals: { medusa } }) {
 	const product = await medusa.getProduct(params.slug);
-	console.log('products2', product);
 	if (!product) throw error(404, 'Product not found');
 	product.valid_until = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toLocaleDateString('fr-CA', {
 		year: 'numeric',

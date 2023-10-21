@@ -65,8 +65,6 @@
 		//    }
 		// }
 	};
-	console.log('test');
-	console.log('product', selectedOptions);
 
 	/* let price = product.variants[0].prices[0].amount / 100; */
 </script>

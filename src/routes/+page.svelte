@@ -3,7 +3,7 @@
 	export let data;
 </script>
 
-<Collection products={data.products.products} />
+<Collection products={data.products} />
 
 <pre>
     {JSON.stringify(data.products, null, 2)}
