@@ -7,15 +7,17 @@
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import { formatPrice, findVariant, findSelectedOptions } from '$lib/utils';
-	/*  import FAQ from './FAQ.svelte' */
-	/*   import Gallery from './Gallery.svelte' */
-	/*   import Highlights from './Highlights.svelte' */
+	import FAQ from './FAQ.svelte';
+	import Gallery from './Gallery.svelte';
+	import Highlights from './Highlights.svelte';
 
 	export let data: PageData;
+
 	let user = data.user as any;
-	let product = data.product.products[0] as any;
+	let product = data.product as any;
 
 	let images = product.images as any;
+	console.log('data', images);
 	let tab: string = 'faq';
 
 	let urlVariantId;
@@ -116,10 +118,10 @@
 
 <div class="max-w-screen-2xl mx-auto py-6 px-6 md:px-8 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-x-6">
 	<div class="lg:max-w-lg lg:self-end">
-		<!-- 	<h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
+		<h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
 		<h2 id="information-heading" class="sr-only">Product information</h2>
 		<p class="mt-2 text-sm">{product.subtitle}</p>
-		<p class="mt-6">{product.description}</p> -->
+		<p class="mt-6">{product.description}</p>
 		{#each product.options as option}
 			<div class="mt-6">
 				<h3 class="text-sm font-medium">{option.title}</h3>
@@ -153,14 +155,14 @@
 			<h3 class="text-sm font-medium">Price</h3>
 			<div class="mt-1 flex items-baseline">
 				<p class="text-2xl font-bold">
-					<!-- {formatPrice(
+					{formatPrice(
 						product.variants[product.variants.findIndex((v) => v.id === selectedVariantId)]
 							.prices[0].amount
-					)} -->
+					)}
 				</p>
-				<!-- <p class="ml-1 text-sm font-medium text-gray-600">
+				<p class="ml-1 text-sm font-medium text-gray-600">
 					/ {product.variants[product.variants.findIndex((v) => v.id === selectedVariantId)].title}
-				</p> -->
+				</p>
 			</div>
 		</div>
 		<form
@@ -174,11 +176,11 @@
 				};
 			}}
 		>
-			<!-- 	<input
+			<input
 				type="hidden"
 				name="variantId"
 				value={product.variants[product.variants.findIndex((v) => v.id === selectedVariantId)].id}
-			/> -->
+			/>
 			<button
 				type="submit"
 				class="mt-6 w-full items-center justify-center rounded-md border border-transparent bg-lime-600 px-5 py-3 text-base font-medium text-white hover:bg-lime-700"
@@ -188,10 +190,10 @@
 		</form>
 	</div>
 	<div class="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 items-start">
-		<!--  <Gallery {images} />  -->
+		<Gallery {images} />
 	</div>
 	<div class="mb-4">
-		<!--  <Highlights /> -->
+		<Highlights />
 	</div>
 	<!-- Tabs -->
 	<div class="max-w-screen-lg lg:col-span-2">
@@ -216,7 +218,7 @@
 			</button>
 		</div>
 		{#if tab == 'faq'}
-			<!--  <FAQ/>       -->
+			<FAQ />
 		{:else if tab == 'other'}
 			Other tab content
 		{/if}

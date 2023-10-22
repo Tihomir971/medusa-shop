@@ -9,6 +9,8 @@ declare global {
 			user: any;
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			cart: any;
+			sid: string;
+			cartid: string;
 		}
 		// interface PageData {}
 		// interface Platform {}
